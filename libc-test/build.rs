@@ -2730,6 +2730,8 @@ fn test_emscripten(target: &str) {
             // put `union` in front of all unions:
             t if is_union => format!("union {}", t),
 
+            "stat64" | "dirent64" | "group" | "rlimit" => format!("struct {}", ty),
+
             t => t.to_string(),
         }
     });
